@@ -1,0 +1,96 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="section">
+    <div class="container">
+        <h1 class="title">
+            {% if current_user.is_authenticated %}
+            <section class="hero is-primary">
+                <div class="hero-body">
+                    <div class="container">
+                        <h1 class="title">
+                            {{ user.username }}'s weight record
+                        </h1>
+                        <h2 class="subtitle">
+                            {{ weights|length }} day(s) Weights
+                        </h2>
+                    </div>
+                </div>
+            </section>
+        </h1>
+        <!--  <nav class="level">
+        <div class="level-left">
+            <ol>
+                {% for weight in weights %} {# 迭代 weights 变量 #}
+                <li>
+                    <div class="level-item">
+                        <div class="item">
+                            <div class="is-size-5">{{ weight.date.strftime("%Y-%m-%d") }} -- {{ weight.weight }}Kg</div>
+                        </div>
+                        <div class="item">
+
+                            <form class="inline-form" method="post"
+                                action="{{ url_for('delete', weight_id=weight.id) }}">
+                                <input class="button" type="submit" name="delete" value="Delete"></form>
+                        </div>
+                    </div>
+                </li>
+                {% endfor %} {# 使用 endfor 标签结束 for 语句 #}
+            </ol>
+        </div>
+    </nav> -->
+
+        <!-- Main container -->
+        <form class="inline-form" method="post">
+            {{ form.hidden_tag() }}
+            <nav class="level">
+                <div class="level-left">
+                    <div class="level-item">
+                        <p class="subtitle is-5">
+                            {{ form.todayweight.label }}
+                        </p>
+                    </div>
+                    <div class="level-item">
+                        <div class="field has-addons">
+                            <p class="control">
+                                {{ form.todayweight( class_ = 'input', type = 'text', placeholder='65.0', style="width:8em;")}}
+                            </p>
+                            &nbsp;
+                            <p class="subtitle is-5">
+                                Kg
+                            </p>
+                            &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+                            <p class="control">
+                                <input class="button is-primary" type="submit" name="submit" value="确认">
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </nav>
+        </form>
+        <table class="table is-fullwidth is-scrollable">
+            <thead>
+                <tr>
+                    <th>Date</th>
+                    <th>Weight</th>
+                    <th>Action</th>
+                </tr>
+            </thead>
+            <tbody height="50px">
+                {% for weight in weights %} {# 迭代 weights 变量 #}
+                <tr>
+                    <th>{{ weight.date.strftime("%Y-%m-%d") }}</th>
+                    <td>{{ weight.weight }}Kg
+                    </td>
+                    <td>
+                        <form class="inline-form" method="post" action="{{ url_for('delete', weight_id=weight.id) }}">
+                            <input class="button" type="submit" name="delete" value="Delete"></form>
+                    </td>
+                </tr>
+                {% endfor %}
+            </tbody>
+        </table>
+        {% endif %}
+        <!-- 在模板中可以直接使用 current_user 变量 -->
+    </div>
+</section>
+{% endblock %}

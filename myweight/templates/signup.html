@@ -1,0 +1,25 @@
+{% extends 'base.html' %}
+
+{% block content %}
+<section class="section">
+    <div class="container">
+        <div class="title is-size-5 has-text-primary has-text-weight-bold">Sign Up</div>
+        <form method="post">
+            {{ form.hidden_tag() }}
+            <div class="is-size-5">
+                {{ form.username.label }}
+            </div>
+            {{ form.username(class_ = 'input', type='text', style="width:8em;") }}
+            <div class="is-size-5">
+                {{ form.password.label }}
+            </div>
+            {{ form.password(class_ = 'input', type='password', style="width:8em;") }}
+            <div class="is-size-5">
+                {{ form.password2.label }}
+            </div>
+            {{ form.password2(class_ = 'input', type='password', style="width:8em;") }}
+            <p>{{ form.submit(class_ = 'button', type='submit') }}</p>
+        </form>
+    </div>
+</section>
+{% endblock %}
