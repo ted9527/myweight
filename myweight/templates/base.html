@@ -29,8 +29,8 @@
             </div>
             {% endfor %}
         </div>
-        <div class="container" >
-        <!-- div class="container" style="margin-bottom:10px;" -->
+        <div class="container">
+            <!-- div class="container" style="margin-bottom:10px;" -->
             <nav class="navbar" role="navigation" aria-label="main navigation">
                 <div class="navbar-brand">
                     <a class="navbar-item" href="ted.com">
@@ -99,14 +99,22 @@
                 </div>
             </nav>
         </div>
-
         <div class="container">
             <h1 class="title">
                 {% if current_user.is_authenticated %}
-
-
+                <section class="hero is-primary">
+                    <div class="hero-body">
+                        <div class="container">
+                            <h1 class="title">
+                                {{ user.username }}'s weight record
+                            </h1>
+                            <h2 class="subtitle">
+                                {{ weights|length }} day(s) Weights
+                            </h2>
+                        </div>
+                    </div>
+                </section>
                 {% else %}
-
                 <section class="hero is-primary">
                     <div class="hero-body">
                         <div class="container">
@@ -122,9 +130,10 @@
                 {% endif %}
             </h1>
         </div>
-    </section>
-    {% block content %}{% endblock %}
 
+        {% block content %}
+        {% endblock %}
+    </section>
     <footer class="footer">
         <div class="content has-text-centered">
             <p>
