@@ -16,7 +16,7 @@ $ cd myweight
 create & active virtual enviroment then install dependencies:
 ```
 $ python -m venv env  # use `virtualenv env` for Python2, use `python3 ...` for Python3 on Linux & macOS
-$ source env/bin/activate  # use `env\Scripts\activate` on Windows
+$ source env/bin/activate  # use `. env/Scripts/activate` on Windows
 $ pip install -r requirements.txt
 ```
 
