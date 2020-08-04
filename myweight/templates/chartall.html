@@ -1,0 +1,16 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="section">
+   <div class="container">
+      {% if totalDays > 0 %}
+      <figure class="image">
+         <img src="{{ url_for('static', filename='img/chartall.png') }}">
+      </figure>
+      {% else %}
+      <div class="is-size-5">
+         Log your weight then see the chart :-)
+      </div>
+      {% endif %}
+   </div>
+</section>
+{% endblock %}

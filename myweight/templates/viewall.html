@@ -1,0 +1,32 @@
+{% extends 'base.html' %}
+{% block content %}
+<!-- <section class="section"> -->
+<div class="container">
+    <!-- Main container -->
+    <br>
+    <table class="table is-fullwidth is-scrollable">
+        <thead>
+            <tr>
+                <th>Date</th>
+                <th>Weight</th>
+                <th>Action</th>
+            </tr>
+        </thead>
+        <tbody height="50px">
+            {% for weight in weights %} {# 迭代 weights 变量 #}
+            <tr>
+                <th>{{ weight.date.strftime("%Y-%m-%d") }}</th>
+                <td>{{ weight.weight }}Kg
+                </td>
+                <td>
+                    <form class="inline-form" method="post" action="{{ url_for('delete', weight_id=weight.id) }}">
+                        <input class="button" type="submit" name="delete" value="Delete"></form>
+                </td>
+            </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    <!-- 在模板中可以直接使用 current_user 变量 -->
+</div>
+<!-- </section> -->
+{% endblock %}

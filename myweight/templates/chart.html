@@ -1,0 +1,18 @@
+{% extends 'base.html' %}
+{% block content %}
+<section class="section">
+   <div class="container">
+      {% if totalDays > 0 %}
+      <figure class="image">
+         <img src="{{ url_for('static', filename='img/chart.png') }}">
+      </figure>
+      {% else %}
+      <div class="is-size-5">
+         Log your weight then see the chart :-)
+      </div>
+      {% endif %}
+      <div class="title is-size-5 has-text-primary">The above is based on the most recent 7 days' record.</div>
+    <div class="title is-size-5 has-text-primary">Click <a  href="{{ url_for('chartall') }}">Chart all</a> to view all record.</div>
+   </div>
+</section>
+{% endblock %}

@@ -2,9 +2,17 @@
 
 A weight record tool
 
-Flask 
-Flask-WTF for Form validation
-Bulma for CSS 
+V0.1 functionality:
+1. add today's weight
+2. delete any day's weight record
+3. view the weight record the most 7 days or all days 
+4. view the chart of weight record of the most 7 days or all days
+
+V0.1 technology: 
+1. Framework -- Flask
+2. Form validation -- Flask-WTF
+3. CSS -- Bulma
+4. Front end (submit local date to server side) -- moment.js and jQuery3.5.1.js
 
 ## Installation
 
