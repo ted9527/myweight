@@ -1,8 +1,8 @@
 import datetime
 from datetime import datetime
 
-from flask import  render_template, request,url_for,flash,redirect
-from flask_login import login_user,login_required,logout_user,current_user
+from flask import  render_template, request, url_for, flash, redirect, jsonify
+from flask_login import login_user, login_required, logout_user, current_user
 from sqlalchemy import desc
 
 from myweight import app, db
@@ -89,8 +89,6 @@ def signup():
     if current_user.is_authenticated:
         return redirect(url_for('index'))
     form = SignupForm()
-    if request.method == 'POST' and not form.validate_on_submit():
-        flash("Password not the same!")
     if request.method == 'POST' and form.validate_on_submit():
         user = User(username=form.username.data)
         user.set_password(form.password.data)
@@ -247,6 +245,7 @@ def chartall():
 
         plt.close()
     return render_template('chartall.html', totalDays = numOfLoggedDays)
+
 
 
 

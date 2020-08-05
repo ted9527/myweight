@@ -10,14 +10,23 @@
                 {{ form.username.label }}
             </div>
             {{ form.username(class_ = 'input', type='text', style="width:8em;") }}
+            {% for error in form.username.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
             <div class="is-size-5">
                 {{ form.password.label }}
             </div>
             {{ form.password(class_ = 'input', type='password', style="width:8em;") }}
+            {% for error in form.password.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
             <div class="is-size-5">
                 {{ form.password2.label }}
             </div>
             {{ form.password2(class_ = 'input', type='password', style="width:8em;") }}
+            {% for error in form.password2.errors %}
+            <span style="color: red;">[{{ error }}]</span>
+            {% endfor %}
             <p>{{ form.submit(class_ = 'button', type='submit') }}</p>
         </form>
     </div>
