@@ -54,24 +54,20 @@
                 </div>
                 <div class="level-item">
                     <div class="field has-addons">
-                        <p class="control">
-                            {{ form.todayweight( class_ = 'input', type = 'text', placeholder='65.0', style="width:8em;")}}
-                        </p>
+                        {{ form.todayweight( class_ = 'input', type = 'text', placeholder='65.0', style="width:8em;")}}
                         &nbsp;
                         <p class="subtitle is-5">
                             Kg
                         </p>
                         &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
-                        <p class="control">
-                            <input class="button is-primary" type="submit" name="submit" value="确认">
-                        </p>
+                        <input class="button is-primary" type="submit" name="submit" value="确认">
                     </div>
                 </div>
             </div>
         </nav>
     </form>
     <script type="text/javascript">
-    
+
         $('#inputWeightForm').submit(function (eventObj) {
             var localDate = moment().format('YYYY-MM-DD');
             $("<input />").attr("type", "hidden")
@@ -106,7 +102,8 @@
         </tbody>
     </table>
     <div class="title is-size-5 has-text-primary">The above is based on the most recent 7 days' record.</div>
-    <div class="title is-size-5 has-text-primary">Click <a  href="{{ url_for('viewall') }}">View all</a> to view all record.</div>
+    <div class="title is-size-5 has-text-primary">Click <a href="{{ url_for('viewall') }}">View all</a> to view all
+        record.</div>
     {% endif %}
     <!-- 在模板中可以直接使用 current_user 变量 -->
 </div>

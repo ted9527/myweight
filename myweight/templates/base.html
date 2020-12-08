@@ -12,7 +12,7 @@
         Your weight record
         {% endif %}
     </title>
-    <link rel="icon" href="{{ url_for('static', filename='favicon.ico') }}">
+    <link rel="icon" href="{{ url_for('static', filename='img/favicon.ico') }}">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/bulma.min.css') }}" type="text/css">
     <link rel="stylesheet" href="{{ url_for('static', filename='css/scrolltable.css') }}" type="text/css">
     {% endblock %}
@@ -54,7 +54,7 @@
                         <a class="navbar-item" href="{{ url_for('chart') }}">
                             Chart
                         </a>
-                    
+
                         <a class="navbar-item" href="{{ url_for('viewall') }}">
                             View all
                         </a>
@@ -70,7 +70,7 @@
                             <div class="navbar-dropdown">
                                 <a class="navbar-item">
                                     Contact author
-                                </a>                      
+                                </a>
                                 <hr class="navbar-divider">
                                 <a class="navbar-item">
                                     About
